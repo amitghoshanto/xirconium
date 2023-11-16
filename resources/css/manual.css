@@ -1,0 +1,21 @@
+[data-bs-theme=dark],
+body[data-bs-theme=dark] [data-bs-theme=light] {
+
+    --tblr-muted: #3a4859;
+    --tblr-body-bg: #000000;
+    --tblr-body-bg-rgb: 21, 31, 44;
+    --tblr-bg-forms: #000000;
+    --tblr-bg-surface: #101010;
+    --tblr-bg-surface-dark: #151f2c;
+    --tblr-border-color: #282828;
+    --tblr-primary-rgb: 55, 142, 255;
+    --tblr-link-color-rgb: 55, 142, 255;
+    --tblr-muted-rgb: 184, 184, 184;
+    --tblr-primary: #0081ff;
+    --tblr-bg-surface-tertiary: #0f0f0f;
+    --invert-color-dark: invert(1);
+}
+
+.iti.iti--separate-dial-code {
+    width: 100%;
+}
