@@ -31,3 +31,33 @@ body[data-bs-theme=dark] [data-bs-theme=light] {
 .card-borderless {
     border: none !important;
 }
+
+.register_button {
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: .5s;
+    background-size: 200% auto;
+    color: #ffffff;
+    margin: 0 auto;
+    border-radius: 10px;
+    display: block;
+    text-decoration: none;
+    background-image: linear-gradient(to right, #b24592 0, #f15f79 51%, #b24592 100%);
+    border-radius: 10px;
+    border: none;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.register_button:hover {
+    background-position: right center;
+}
+
+.text-decoration-none {
+    text-decoration: none;
+}
+
+.text-decoration-none:hover {
+    text-decoration: none;
+}

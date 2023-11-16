@@ -1,10 +1,20 @@
 <x-layouts.main :meta="$meta">
 
 
-    <div class="container container-tight py-4">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi, omnis vitae. Quisquam earum, provident aut
-        nostrum voluptatum temporibus aspernatur dicta! Sapiente nostrum exercitationem excepturi fuga cum architecto,
-        accusantium mollitia sed!
+    <div class="container container-tight py-4 ">
+        <img src="https://i.ibb.co/QHR9kqy/habib-event.jpg" alt="">
+
+
+
+
+
+        <div class="text-center "><a href="{{ route('signup') }}" class="text-decoration-none">
+                <button class="register_button " style=""><b>REGISTER
+                        ONLINE</b></button>
+            </a></div>
+
+
+
     </div>
 
 </x-layouts.main>
