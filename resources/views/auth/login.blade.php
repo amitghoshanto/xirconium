@@ -2,10 +2,46 @@
 
 
     <div class="container container-tight py-4">
-        <div class="text-center mb-4">
 
+
+        <div class="text-center mb-4">
+            @if ($errors->any())
+                <div class="alert alert-important alert-danger alert-dismissible" role="alert">
+                    <div class="d-flex">
+                        <div>
+                            <!-- Download SVG icon from http://tabler-icons.io/i/alert-circle -->
+                            <!-- SVG icon code with class="alert-icon" -->
+                        </div>
+                        <div>
+                            <span>
+                                @foreach ($errors->all() as $error)
+                                    <span>{{ $error }}</span>
+                                @endforeach
+                            </span>
+                        </div>
+                    </div>
+                    <a class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="close"></a>
+                </div>
+            @endif
+
+            @if (Session::has('alert'))
+                <div class="alert alert-important alert-{{ Session::get('alert') }} alert-dismissible" role="alert">
+                    <div class="d-flex">
+                        <div>
+                            <!-- Download SVG icon from http://tabler-icons.io/i/alert-circle -->
+                            <!-- SVG icon code with class="alert-icon" -->
+                        </div>
+                        <div>
+                            <span>
+                                {{ Session::get('title') }}
+                            </span>
+                        </div>
+                    </div>
+                    <a class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="close"></a>
+                </div>
+            @endif
         </div>
-        <form class="card card-md" method="post" autocomplete="off" novalidate="">
+        <form class="card card-md card-borderless" method="post" autocomplete="off" novalidate="">
             @csrf
             <div class="card-body">
                 <h2 class="card-title text-center mb-4">Login</h2>
@@ -24,20 +60,10 @@
                     <label class="form-label">Password</label>
                     <div class="input-group input-group-flat">
                         <input type="password" class="form-control" placeholder="Password" autocomplete="off"
-                            name="password">
-                        <span class="input-group-text">
-                            <a href="#" class="link-secondary" data-bs-toggle="tooltip" aria-label="Show password"
-                                data-bs-original-title="Show password"><!-- Download SVG icon from http://tabler-icons.io/i/eye -->
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                    <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
-                                    <path
-                                        d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6">
-                                    </path>
-                                </svg>
-                            </a>
+                            name="password" id="password">
+                        <span class="input-group-text p-2">
+                            <a href="#" class="input-group-link" onclick="chnagePassType()"
+                                id="show_pass_button">Show password</a>
                         </span>
                     </div>
                 </div>
@@ -82,6 +108,19 @@
             hiddenInput: ["contact"],
             utilsScript: "//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/utils.js"
         });
+    </script>
+    <script>
+        function chnagePassType() {
+            var l_pass = document.getElementById("password");
+            var show_pass_button = document.getElementById("show_pass_button");
+            if (l_pass.type === "password") {
+                l_pass.type = "text";
+                show_pass_button.innerHTML = "Hide Password";
+            } else {
+                l_pass.type = "password";
+                show_pass_button.innerHTML = "Show Password";
+            }
+        }
     </script>
 
 </x-layouts.main>

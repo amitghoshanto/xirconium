@@ -19,3 +19,15 @@ body[data-bs-theme=dark] [data-bs-theme=light] {
 .iti.iti--separate-dial-code {
     width: 100%;
 }
+
+.hr-text {
+    margin: 1rem !important;
+}
+
+.iti--separate-dial-code .iti__selected-dial-code {
+    margin-left: 6px;
+}
+
+.card-borderless {
+    border: none !important;
+}

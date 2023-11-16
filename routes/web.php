@@ -30,4 +30,8 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('signup', 'create');
     Route::get('forget-pass', 'forgotPassword')->name('forget-password');
     Route::post('forget-pass', 'forgotPasswordPost');
+    Route::get('verify-signup', 'verifySignup')->name('verify-signup');
+    Route::post('verify-signup', 'codeVerification');
+    Route::get('set-password', 'setPassword')->name('set-password');
+    Route::post('set-password', 'setPasswordPost');
 });

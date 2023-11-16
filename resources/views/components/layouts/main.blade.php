@@ -7,16 +7,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $meta['title'] ? $meta['title'] . ' - Xirconium' : 'Xirconium' }}</title>
     @vite(['resources/js/app.js'])
-</head>
-<style>
-    .hr-text {
-        margin: 1rem !important;
-    }
+    {{-- jquery --}}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-    .iti--separate-dial-code .iti__selected-dial-code {
-        margin-left: 6px;
-    }
-</style>
+</head>
+@if (isMobile())
+    <style>
+        [data-bs-theme=dark],
+        body[data-bs-theme=dark] [data-bs-theme=light] {
+
+            --tblr-bg-surface: #000000;
+
+        }
+    </style>
+@endif
 
 <body data-bs-theme="dark">
     <div class="page">

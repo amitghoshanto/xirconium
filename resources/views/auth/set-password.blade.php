@@ -2,6 +2,8 @@
 
 
     <div class="container container-tight py-4">
+
+
         <div class="text-center mb-4">
             @if ($errors->any())
                 <div class="alert alert-important alert-danger alert-dismissible" role="alert">
@@ -42,7 +44,9 @@
         <form class="card card-md card-borderless" method="post" autocomplete="off" novalidate="">
             @csrf
             <div class="card-body">
-                <h2 class="card-title text-center mb-4">Create account</h2>
+                <h2 class="card-title text-center mb-4">Verification Successful</h2>
+                <h3 class="card-subtitle text-center mb-4 text-muted">Set a new password for your account below.</h3>
+
 
 
 
@@ -50,18 +54,52 @@
                     <label class="form-label">Phone Number :</label>
                     <div class="input-group mb-2">
                         <input type="tel" placeholder="" id="lo-verify-number" class="form-control w-100"
-                            value="+8801610432417">
+                            value="{{ session('contact') }}" disabled name="phone">
                     </div>
                     <small class="form-hint" id="username_avail_result"> </small>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <div class="input-group input-group-flat">
+                        <input type="password" class="form-control" placeholder="Choose password" autocomplete="off"
+                            name="password" id="password">
+                        <span class="input-group-text p-2">
+                            <a href="#" class="input-group-link" onclick="chnagePassType()"
+                                id="show_pass_button">Show password</a>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Retype Password</label>
+                    <div class="input-group input-group-flat">
+                        <input type="password" class="form-control" placeholder="Confirm password" autocomplete="off"
+                            name="password_2" id="password_2">
+                        <span class="input-group-text p-2">
+                            <a href="#" class="input-group-link" onclick="chnagePassType2()"
+                                id="show_pass_button_2">Show password</a>
+                        </span>
+                    </div>
+                </div>
+
+
+                <div class="mb-3">
+
+
+                    <span class="form-check-label">By selecting Create account below, I agree to Xirconium’s Terms of
+                        Service, Payments Terms of Service and Privacy Policy.</span>
+
                 </div>
 
 
 
 
                 <div class="form-footer">
-                    <button type="submit" class="btn btn-danger w-100">Send Verification Code</button>
+                    <button type="submit" class="btn btn-danger w-100">Create Account</button>
                     <div class="hr-text">OR</div>
-                    <a href="{{ route('login') }}" class="btn btn-green w-100">Already have account? Login</a>
+                    <a href="{{ route('login') }}" class="btn btn-success w-100">Already have an account?
+                        <b> Login</b></a>
 
                 </div>
 
@@ -87,6 +125,32 @@
             hiddenInput: ["contact"],
             utilsScript: "//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/utils.js"
         });
+    </script>
+    <script>
+        function chnagePassType() {
+            var l_pass = document.getElementById("password");
+            var show_pass_button = document.getElementById("show_pass_button");
+            if (l_pass.type === "password") {
+                l_pass.type = "text";
+                show_pass_button.innerHTML = "Hide Password";
+            } else {
+                l_pass.type = "password";
+                show_pass_button.innerHTML = "Show Password";
+            }
+        }
+
+
+        function chnagePassType2() {
+            var l_pass = document.getElementById("password_2");
+            var show_pass_button = document.getElementById("show_pass_button_2");
+            if (l_pass.type === "password") {
+                l_pass.type = "text";
+                show_pass_button.innerHTML = "Hide Password";
+            } else {
+                l_pass.type = "password";
+                show_pass_button.innerHTML = "Show Password";
+            }
+        }
     </script>
 
 </x-layouts.main>

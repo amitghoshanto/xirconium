@@ -10,3 +10,13 @@ function isMobile()
     };
     return false;
 }
+
+
+
+function redirect_link($key = null)
+{
+    if ($key) {
+        Session::put('_redirect', URL::current());
+    }
+    return Session::get('_redirect');
+}
