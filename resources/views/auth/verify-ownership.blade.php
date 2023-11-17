@@ -3,17 +3,7 @@
         <div class="text-center mb-4">
             @if (Session::has('alert'))
                 <div class="alert alert-important alert-{{ Session::get('alert') }} alert-dismissible" role="alert">
-                    <div class="d-flex">
-                        <div>
-                            <!-- Download SVG icon from http://tabler-icons.io/i/alert-circle -->
-                            <!-- SVG icon code with class="alert-icon" -->
-                        </div>
-                        <div>
-                            <span>
-                                {{ Session::get('title') }}
-                            </span>
-                        </div>
-                    </div>
+                    {!! Session::get('title') !!}
                     <a class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="close"></a>
                 </div>
             @endif
@@ -21,7 +11,7 @@
         <form class="card card-md card-borderless" action="" method="post" autocomplete="off" novalidate="">
             @csrf
             <div class="card-body">
-                <h2 class="card-title card-title-lg text-center mb-4">Verify Mobile Number</h2>
+                <h2 class="card-title card-title-lg text-center mb-4">Verify Account Ownership</h2>
                 <p class="my-4 text-center">Please confirm your account by entering the otp code sent to
                     <strong>{{ Session::get('contact') }}</strong>.
                 </p>
@@ -78,7 +68,8 @@
             </div>
         </form>
         <div class="text-center text-secondary mt-3">
-            It may take a minute to receive your code. Haven't received it? <a href="{{ route('signup') }}">Resend a new
+            It may take a minute to receive your code. Haven't received it? <a
+                href="{{ route('forget-password') }}">Resend a new
                 code.</a>
         </div>
     </div>

@@ -21,8 +21,8 @@
         <form class="card card-md card-borderless" method="post" autocomplete="off" novalidate="">
             @csrf
             <div class="card-body">
-                <h2 class="card-title text-center mb-4">Verification Successful</h2>
-                <h3 class="card-subtitle text-center mb-4 text-muted">Set a new password for your account below.</h3>
+                <h2 class="card-title text-center mb-4">Reset Password</h2>
+                <h3 class="card-subtitle text-center mb-4 text-muted">Set a new password for your account.</h3>
                 <div class="mb-3">
                     <label class="form-label">Phone Number :</label>
                     <div class="input-group mb-2">
@@ -65,15 +65,8 @@
                         </div>
                     @enderror
                 </div>
-                <div class="mb-3">
-                    <span class="form-check-label">By selecting Create account below, I agree to Xirconium’s Terms of
-                        Service, Payments Terms of Service and Privacy Policy.</span>
-                </div>
                 <div class="form-footer">
-                    <button type="submit" class="btn btn-danger w-100">Create Account</button>
-                    <div class="hr-text">OR</div>
-                    <a href="{{ route('login') }}" class="btn btn-success w-100">Already have an account?
-                        <b> Login</b></a>
+                    <button type="submit" class="btn btn-danger w-100">Reset Now</button>
                 </div>
             </div>
         </form>

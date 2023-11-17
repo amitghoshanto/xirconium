@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\VerificationCode;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\VerificationCode;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
@@ -30,13 +31,7 @@ class AuthController extends Controller
             'password' => $validatedData['password'],
         ])) {
             $request->session()->regenerate();
-            if (redirect_link()) {
-                $redirect_link = redirect_link();
-                Session::forget('_redirect');
-                return redirect()->to($redirect_link);
-            } else {
-                return redirect()->back();
-            }
+            return redirect()->back();
         }
         return back()->with(['alert' => 'danger', 'title' => 'Wrong credentials', 'muted' => 'The provided credentials do not match our records.']);
     }
@@ -55,7 +50,6 @@ class AuthController extends Controller
 
         $validatedData = $request->validate([
             'contact' => 'required',
-
         ]);
         $only_number = Str::replace('+880', '', $validatedData['contact']);
         $user = User::where('contact', $only_number)->first();
@@ -64,7 +58,8 @@ class AuthController extends Controller
         } else {
             VerificationCode::create([
                 'contact' => $only_number,
-                'code' => rand(100000, 999999),
+                // 'code' => rand(100000, 999999),  
+                'code' => 999999,
             ]);
             Session::put('contact', $validatedData['contact']);
             return redirect(route('verify-signup'))->with(['alert' => 'success', 'title' => 'Verification code sent', 'muted' => 'Verification code sent.']);
@@ -104,21 +99,37 @@ class AuthController extends Controller
 
     public function setPasswordPost(Request $request)
     {
-        dump($request->all());
+        $validatedData = $request->validate([
+            'password' => 'required|min:2|max:25|confirmed',
+            'password_confirmation' => 'required|min:2|max:25',
+        ]);
+        $only_number = Str::replace('+880', '', Session::get('contact'));
+        //create an account for user
+        $user = User::where('contact', $only_number)->first();
+        $clean_pass = $validatedData['password'];
+        $newpass = Hash::make($validatedData['password']);
 
-        // $validatedData = $request->validate([
-        //     'password' => 'required|min:2|max:25',
-        // ]);
-        // $only_number = Str::replace('+880', '', Session::get('contact'));
-        // $user = User::where('contact', $only_number)->first();
-        // $user->update([
-        //     'password' => bcrypt($validatedData['password']),
-        // ]);
-        // return redirect(route('login'))->with(['alert' => 'success', 'title' => 'Password set', 'muted' => 'Password set.']);
+        User::create([
+            'contact' => $only_number,
+            'password' => $newpass,
+        ]);
+
+
+        if (Auth::attempt([
+            'contact' => $only_number,
+            'password' => $clean_pass,
+        ])) {
+            $request->session()->regenerate();
+            return redirect()->back();
+        }
+
+        return redirect(route('login'))->with(['alert' => 'success', 'title' => 'Password set', 'muted' => 'Password set.']);
     }
 
     public function logout()
     {
+        Auth::logout();
+        return redirect(route('login'));
     }
 
     public function forgotPassword()
@@ -131,6 +142,87 @@ class AuthController extends Controller
 
     public function forgotPasswordPost(Request $request)
     {
-        dump($request->all());
+
+
+        $validatedData = $request->validate([
+            'contact' => 'required',
+        ]);
+        $only_number = Str::replace('+880', '', $validatedData['contact']);
+        $user = User::where('contact', $only_number)->first();
+        if (!$user) {
+
+            return back()->with(['alert' => 'danger', 'title' => 'There is no account associated with this Mobile Number.
+            Create an account with it.', 'muted' => 'Not registered.']);
+        } else {
+            // update user > reset_code 
+            $reset_code = rand(100000, 999999);
+            User::where('contact', $only_number)->update([
+                'reset_code' => $reset_code,
+            ]);
+
+
+            Session::put('contact', $validatedData['contact']);
+            return redirect(route('verify-ownership'))->with(['alert' => 'success', 'title' => 'Verification code sent', 'muted' => 'Verification code sent.']);
+        }
+    }
+
+    public function verifyOwnership()
+    {
+        $meta = [
+            'title' => 'Verify Ownership',
+        ];
+        return view('auth.verify-ownership', compact('meta'));
+    }
+
+    public function verifyOwnershipPost(Request $request)
+    {
+        $validatedData = $request->validate([
+            'code' => 'required',
+        ]);
+        $code = $validatedData['code'][0] . $validatedData['code'][1] . $validatedData['code'][2] . $validatedData['code'][3] . $validatedData['code'][4] . $validatedData['code'][5];
+        $contact = Session::get('contact');
+        $only_number = Str::replace('+880', '', $contact);
+        $verify = User::where('contact', $only_number)->where('reset_code', $code)->first();
+        if ($verify) {
+            return redirect(route('change-password'))->with(['alert' => 'success', 'title' => 'Verification successful', 'muted' => 'Set your password.']);
+        } else {
+            return back()->with(['alert' => 'danger', 'title' => 'Your verification code was incorrect. Please enter the correct code.', 'muted' => 'Try again.']);
+        }
+    }
+
+    public function changePassword()
+    {
+        $meta = [
+            'title' => 'Set Password',
+        ];
+        return view('auth.change-password', compact('meta'));
+    }
+
+    public function changePasswordPost(Request $request)
+    {
+        $validatedData = $request->validate([
+            'password' => 'required|min:2|max:25|confirmed',
+            'password_confirmation' => 'required|min:2|max:25',
+        ]);
+        $only_number = Str::replace('+880', '', Session::get('contact'));
+        //create an account for user
+        $clean_pass = $validatedData['password'];
+        $newpass = Hash::make($validatedData['password']);
+
+        User::where('contact', $only_number)->update([
+            'password' => $newpass,
+        ]);
+
+        if (Auth::attempt([
+            'contact' => $only_number,
+            'password' => $clean_pass,
+        ])) {
+            $request->session()->regenerate();
+
+            return redirect(route('profile'))->with(['alert' => 'success', 'title' => 'Password changed', 'muted' => 'Password changed.']);
+        } else {
+
+            return back()->with(['alert' => 'danger', 'title' => 'Password not changed', 'muted' => 'Password not changed.']);
+        }
     }
 }
