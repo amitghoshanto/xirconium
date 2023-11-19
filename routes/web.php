@@ -21,6 +21,10 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('index', function () {
         return redirect()->route('home');
     });
+
+    Route::get('about-us', 'aboutUs')->name('AboutUs');
+    Route::get('privacy-policy', 'privacyPolicy')->name('PrivacyPolicy');
+    Route::get('terms-and-conditions', 'termsAndConditions')->name('TOS');
 });
 
 Route::controller(AuthController::class)->group(function () {
@@ -45,4 +49,5 @@ Route::controller(AuthController::class)->group(function () {
 
 Route::controller(UserController::class)->group(function () {
     Route::get('profile', 'index')->name('profile')->middleware('auth');
+    Route::post('profile', 'edit')->middleware('auth');
 });

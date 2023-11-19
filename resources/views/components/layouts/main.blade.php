@@ -83,11 +83,13 @@
             <div class="row text-center align-items-center flex-row-reverse">
                 <div class="col-lg-auto ms-lg-auto">
                     <ul class="list-inline list-inline-dots mb-0">
-                        <li class="list-inline-item"><a href="" class="link-secondary">About Us</a>
+                        <li class="list-inline-item"><a href="{{ route('AboutUs') }}" class="link-secondary">About
+                                Us</a>
                         </li>
-                        <li class="list-inline-item"><a href="" class="link-secondary">Privacy
+                        <li class="list-inline-item"><a href="{{ route('PrivacyPolicy') }}"
+                                class="link-secondary">Privacy
                                 Policy</a></li>
-                        <li class="list-inline-item"><a href="" class="link-secondary">Terms
+                        <li class="list-inline-item"><a href="{{ route('TOS') }}" class="link-secondary">Terms
                                 &
                                 Condition</a></li>
                     </ul>
