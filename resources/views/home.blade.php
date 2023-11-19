@@ -2,7 +2,7 @@
 
 
     <div class="container container-tight py-4 ">
-        {{-- <img src="https://i.ibb.co/QHR9kqy/habib-event.jpg" alt=""> --}}
+        <img src="https://i.ibb.co/QHR9kqy/habib-event.jpg" alt="">
 
 
 
