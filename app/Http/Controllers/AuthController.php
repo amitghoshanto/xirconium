@@ -154,8 +154,8 @@ class AuthController extends Controller
             return back()->with(['alert' => 'danger', 'title' => 'There is no account associated with this Mobile Number.
             Create an account with it.', 'muted' => 'Not registered.']);
         } else {
-            // update user > reset_code 
-            $reset_code = rand(100000, 999999);
+            //$reset_code = rand(100000, 999999);
+            $reset_code = 999999;
             User::where('contact', $only_number)->update([
                 'reset_code' => $reset_code,
             ]);
