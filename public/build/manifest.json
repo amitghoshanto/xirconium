@@ -1,0 +1,31 @@
+{
+  "node_modules/intl-tel-input/build/img/flags.png": {
+    "file": "assets/flags-54dc5bc4.png",
+    "src": "node_modules/intl-tel-input/build/img/flags.png"
+  },
+  "node_modules/intl-tel-input/build/img/flags@2x.png": {
+    "file": "assets/flags@2x-9bd00899.png",
+    "src": "node_modules/intl-tel-input/build/img/flags@2x.png"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-4ed993c7.js",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
+  "resources/js/app.css": {
+    "file": "assets/app-9cb7f626.css",
+    "src": "resources/js/app.css"
+  },
+  "resources/js/app.js": {
+    "assets": [
+      "assets/flags-54dc5bc4.png",
+      "assets/flags@2x-9bd00899.png"
+    ],
+    "css": [
+      "assets/app-9cb7f626.css"
+    ],
+    "file": "assets/app-ebe27057.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  }
+}
