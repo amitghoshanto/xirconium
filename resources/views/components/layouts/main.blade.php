@@ -20,6 +20,20 @@
     </style>
 @endif
 
+
+<style>
+    .card-header {
+        color: inherit;
+        display: flex;
+        align-items: center;
+        background: #1b1b1b;
+    }
+
+    .card-header .card-title {
+        margin: 0 auto;
+    }
+</style>
+
 <body data-bs-theme="dark">
     <div class="page">
         @if (isMobile())

@@ -13,6 +13,23 @@ class UserController extends Controller
         $meta = [
             'title' => 'Profile',
         ];
+
+        if (Auth::user()->status == 0) {
+            return view('profile.incomplete', compact('meta'));
+        }
+
+        if (Auth::user()->status == 1) {
+            return view('profile.under-review', compact('meta'));
+        }
+
+        if (Auth::user()->status == 2) {
+            return view('profile.verified', compact('meta'));
+        }
+
+        if (Auth::user()->status == 3) {
+            return view('profile.not-verified', compact('meta'));
+        }
+
         return view('profile.index', compact('meta'));
     }
 
@@ -50,5 +67,15 @@ class UserController extends Controller
             'email' => $request->email,
         ]);
         return back()->with(['alert' => 'success', 'title' => 'Profile Updated', 'muted' => 'Profile Updated.']);
+    }
+
+    public function profileUnderReview()
+    {
+        $meta = [
+            'title' => 'Profile Under Review',
+        ];
+        //return view('profile.under-review', compact('meta'));
+
+        dump(Auth::user());
     }
 }
