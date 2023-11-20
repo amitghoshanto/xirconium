@@ -37,4 +37,12 @@ class HomeController extends Controller
         ];
         return view('static.terms-and-conditions', compact('meta'));
     }
+
+    public function test()
+    {
+        $meta = [
+            'title' => 'Test',
+        ];
+        return view('static.test', compact('meta'));
+    }
 }

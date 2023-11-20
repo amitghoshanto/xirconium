@@ -25,6 +25,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('about-us', 'aboutUs')->name('AboutUs');
     Route::get('privacy-policy', 'privacyPolicy')->name('PrivacyPolicy');
     Route::get('terms-and-conditions', 'termsAndConditions')->name('TOS');
+    Route::get('test', 'test')->name('test');
 });
 
 Route::controller(AuthController::class)->group(function () {
