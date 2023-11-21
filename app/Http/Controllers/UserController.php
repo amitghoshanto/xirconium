@@ -65,6 +65,9 @@ class UserController extends Controller
             'dob_m' => $request->dob_m,
             'dob_y' => $request->dob_y,
             'email' => $request->email,
+            'status' => 1
+
+
         ]);
         return back()->with(['alert' => 'success', 'title' => 'Profile Updated', 'muted' => 'Profile Updated.']);
     }
