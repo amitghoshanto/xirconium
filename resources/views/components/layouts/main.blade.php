@@ -13,13 +13,29 @@
 </head>
 @if (isMobile())
     <style>
-        [data-bs-theme=dark],
-        body[data-bs-theme=dark] [data-bs-theme=light] {
-            --tblr-bg-surface: #000000;
+        .card-borderless-mobile {
+            border: none !important;
         }
     </style>
 @endif
+<style>
+    [data-bs-theme=dark],
+    body[data-bs-theme=dark] [data-bs-theme=light] {
+        --tblr-bg-surface: #000000;
+    }
 
+    .form-control.is-invalid,
+    .was-validated .form-control:invalid {
+        background-image: none !important;
+    }
+
+    .form-select.is-invalid:not([multiple]):not([size]),
+    .form-select.is-invalid:not([multiple])[size="1"],
+    .was-validated .form-select:invalid:not([multiple]):not([size]),
+    .was-validated .form-select:invalid:not([multiple])[size="1"] {
+        background-image: none !important;
+    }
+</style>
 
 <style>
     .card-header {

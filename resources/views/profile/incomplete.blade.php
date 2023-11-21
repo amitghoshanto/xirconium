@@ -3,9 +3,9 @@
 
     <div class="container container-tight pt-4 ">
 
-        <div class="card card-md card-borderless">
+        <div class="card card-md card-borderless-mobile">
 
-            <form class="card card-md card-borderless" method="post" autocomplete="off" novalidate="">
+            <form class="card card-md card-borderless-mobile" method="post" autocomplete="off" novalidate="">
                 <div class="card-body">
                     <h2 class="card-title text-center mb-4">Private Event Registration</h2>
                     <h3 class="card-subtitle text-center mb-4 text-muted">Complete this form to register online.</h3>
@@ -45,10 +45,11 @@
                     <div class="mb-3">
                         <label class="form-label">Legal Name</label>
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floating-input"
+                            <input type="text" class="form-control @error('first_name') is-invalid @enderror"
+                                id="first_name"
                                 value="{{ old('first_name') ? old('first_name') : auth()->user()->first_name }}"
                                 autocomplete="off" name="first_name">
-                            <label for="floating-input">First Name</label>
+                            <label for="first_name">First Name</label>
                             @error('first_name')
                                 <div class="is-invalid"></div>
                                 <div class="invalid-feedback">
@@ -57,10 +58,11 @@
                             @enderror
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floating-input"
+                            <input type="text" class="form-control @error('last_name') is-invalid @enderror"
+                                id="last_name"
                                 value="{{ old('last_name') ? old('last_name') : auth()->user()->last_name }}"
                                 autocomplete="off" name="last_name">
-                            <label for="floating-input">Last Name</label>
+                            <label for="last_name">Last Name</label>
                             @error('last_name')
                                 <div class="is-invalid"></div>
                                 <div class="invalid-feedback">
@@ -70,14 +72,14 @@
                         </div>
 
                         <div class="form-floating">
-                            <select class="form-select" id="floatingSelect" aria-label="Floating label select example"
-                                name="gender">
+                            <select class="form-select @error('gender') is-invalid @enderror" id="gender"
+                                aria-label="Floating label select example" name="gender">
                                 <option value="">Choose Gender</option>
                                 <option value="1" @if (old('gender') ? old('gender') : auth()->user()->gender == 1) selected @endif>Male</option>
                                 <option value="2" @if (old('gender') ? old('gender') : auth()->user()->gender == 2) selected @endif>Female</option>
                                 <option value="3" @if (old('gender') ? old('gender') : auth()->user()->gender == 3) selected @endif>Others</option>
                             </select>
-                            <label for="floatingSelect">Gender</label>
+                            <label for="gender">Gender</label>
                             @error('gender')
                                 <div class="is-invalid"></div>
                                 <div class="invalid-feedback">
@@ -96,7 +98,7 @@
                             <label class="form-label">Date of Birth</label>
                             <div class="col-md-4">
                                 <div class="form-floating">
-                                    <select class="form-select" id="floatingSelect"
+                                    <select class="form-select @error('dob_d') is-invalid @enderror" id="dob_d"
                                         aria-label="Floating label select example" name="dob_d">
                                         <option value="">Day</option>
                                         @for ($i = 1; $i <= 31; $i++)
@@ -106,7 +108,7 @@
                                         @endfor
 
                                     </select>
-                                    <label for="floatingSelect">Day</label>
+                                    <label for="dob_d">Day</label>
                                     @error('dob_d')
                                         <div class="is-invalid"></div>
                                         <div class="invalid-feedback">
@@ -118,7 +120,7 @@
 
                             <div class="col-md-4">
                                 <div class="form-floating">
-                                    <select class="form-select" id="floatingSelect"
+                                    <select class="form-select @error('dob_m') is-invalid @enderror" id="dob_m"
                                         aria-label="Floating label select example" name="dob_m">
                                         <option value="">Month</option>
 
@@ -134,7 +136,7 @@
 
 
                                     </select>
-                                    <label for="floatingSelect">Month</label>
+                                    <label for="dob_m">Month</label>
                                     @error('dob_m')
                                         <div class="is-invalid"></div>
                                         <div class="invalid-feedback">
@@ -146,7 +148,7 @@
 
                             <div class="col-md-4">
                                 <div class="form-floating">
-                                    <select class="form-select" id="floatingSelect"
+                                    <select class="form-select @error('dob_y') is-invalid @enderror" id="dob_y"
                                         aria-label="Floating label select example" name="dob_y">
                                         <option value="">Year</option>
                                         {{-- 2020 - 1900 --}}
@@ -158,7 +160,7 @@
                                         @endfor
 
                                     </select>
-                                    <label for="floatingSelect">Year</label>
+                                    <label for="dob_y">Year</label>
                                     @error('dob_y')
                                         <div class="is-invalid"></div>
                                         <div class="invalid-feedback">
@@ -173,10 +175,10 @@
                     </div>
                     <div class="mb-3">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floating-input"
-                                value="{{ old('email') ? old('email') : Auth::user()->email }}" autocomplete="off"
-                                name="email">
-                            <label for="floating-input">Email Address</label>
+                            <input type="text" class="form-control @error('email') is-invalid @enderror"
+                                id="email" value="{{ old('email') ? old('email') : Auth::user()->email }}"
+                                autocomplete="off" name="email">
+                            <label for="email">Email Address</label>
                             @error('email')
                                 <div class="is-invalid"></div>
                                 <div class="invalid-feedback">

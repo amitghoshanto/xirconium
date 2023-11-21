@@ -8,7 +8,7 @@
                 </div>
             @endif
         </div>
-        <form class="card card-md card-borderless" action="" method="post" autocomplete="off" novalidate="">
+        <form class="card card-md  card-borderless-mobile" action="" method="post" autocomplete="off" novalidate="">
             @csrf
             <div class="card-body">
                 <h2 class="card-title card-title-lg text-center mb-4">Verify Account Ownership</h2>

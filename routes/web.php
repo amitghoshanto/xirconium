@@ -1,9 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CropImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,3 +53,7 @@ Route::controller(UserController::class)->group(function () {
     Route::get('profile', 'index')->name('profile')->middleware('auth');
     Route::post('profile', 'edit')->middleware('auth');
 });
+
+
+Route::get('cropimage', [CropImageController::class, 'index']);
+Route::post('crop-image-upload-ajax', [CropImageController::class, 'cropImageUploadAjax']);

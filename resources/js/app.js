@@ -1,4 +1,3 @@
-import './bootstrap';
 import '@tabler/core/dist/css/tabler.min.css'
 // import '@tabler/core/dist/css/tabler-flags.min.css'
 import '../css/manual.css'

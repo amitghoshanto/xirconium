@@ -18,7 +18,7 @@
                 </div>
             @endif
         </div>
-        <form class="card card-md card-borderless" method="post" autocomplete="off" novalidate="">
+        <form class="card card-md  card-borderless-mobile" method="post" autocomplete="off" novalidate="">
             @csrf
             <div class="card-body">
                 <h2 class="card-title text-center mb-4">Verification Successful</h2>
@@ -34,8 +34,8 @@
                 <div class="mb-3">
                     <label class="form-label">Password</label>
                     <div class="input-group input-group-flat">
-                        <input type="password" class="form-control" placeholder="Choose password" autocomplete="off"
-                            name="password" id="password">
+                        <input type="password" class="form-control @error('password') is-invalid @enderror"
+                            placeholder="Choose password" autocomplete="off" name="password" id="password">
                         <span class="input-group-text p-2">
                             <a href="#" class="input-group-link" onclick="chnagePassType()"
                                 id="show_pass_button">Show password</a>
@@ -51,8 +51,9 @@
                 <div class="mb-3">
                     <label class="form-label">Retype Password</label>
                     <div class="input-group input-group-flat">
-                        <input type="password" class="form-control" placeholder="Confirm password" autocomplete="off"
-                            name="password_confirmation" id="password_2">
+                        <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror"
+                            placeholder="Confirm password" autocomplete="off" name="password_confirmation"
+                            id="password_2">
                         <span class="input-group-text p-2">
                             <a href="#" class="input-group-link" onclick="chnagePassType2()"
                                 id="show_pass_button_2">Show password</a>

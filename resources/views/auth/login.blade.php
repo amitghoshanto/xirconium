@@ -18,14 +18,15 @@
                 </div>
             @endif
         </div>
-        <form class="card card-md card-borderless" method="post" autocomplete="off" novalidate="">
+        <form class="card card-md  card-borderless-mobile" method="post" autocomplete="off" novalidate="">
             @csrf
             <div class="card-body">
                 <h2 class="card-title text-center mb-4">Login</h2>
                 <div class="mb-3">
                     <label class="form-label">Phone Number :</label>
                     <div class="input-group mb-2">
-                        <input type="tel" placeholder="" id="lo-verify-number" class="form-control w-100">
+                        <input type="tel" placeholder="" id="lo-verify-number"
+                            class="form-control w-100 @error('contact') is-invalid @enderror">
                     </div>
                     <small class="form-hint" id="username_avail_result"> </small>
                     @error('contact')
@@ -38,8 +39,8 @@
                 <div class="mb-3">
                     <label class="form-label">Password</label>
                     <div class="input-group input-group-flat">
-                        <input type="password" class="form-control" placeholder="Password" autocomplete="off"
-                            name="password" id="password">
+                        <input type="password" class="form-control @error('password') is-invalid @enderror"
+                            placeholder="Password" autocomplete="off" name="password" id="password">
                         <span class="input-group-text p-2">
                             <a href="#" class="input-group-link" onclick="chnagePassType()"
                                 id="show_pass_button">Show password</a>

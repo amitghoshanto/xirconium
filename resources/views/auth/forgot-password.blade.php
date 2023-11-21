@@ -18,14 +18,15 @@
                 </div>
             @endif
         </div>
-        <form class="card card-md" method="post" autocomplete="off" novalidate="">
+        <form class="card card-md  card-borderless-mobile" method="post" autocomplete="off" novalidate="">
             @csrf
             <div class="card-body">
                 <h2 class="card-title text-center mb-4">Forgot Password</h2>
                 <div class="mb-3">
                     <label class="form-label">Phone Number :</label>
                     <div class="input-group mb-2">
-                        <input type="tel" placeholder="" id="lo-verify-number" class="form-control w-100">
+                        <input type="tel" placeholder="" id="lo-verify-number"
+                            class="form-control w-100 @error('contact') is-invalid @enderror">
                     </div>
                     <small class="form-hint" id="username_avail_result"> </small>
                     @error('contact')
