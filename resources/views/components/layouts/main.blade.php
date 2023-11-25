@@ -95,12 +95,10 @@
                                     Logout
                                 </a>
                             @else
-                                <a href="{{ route('login') }}"
-                                    class="btn btn-outline-green @if (request()->routeIs('login')) active @endif">
+                                <a href="{{ route('login') }}" class="btn btn-outline-green  ">
                                     Login
                                 </a>
-                                <a href="{{ route('signup') }}"
-                                    class="btn btn-outline-warning @if (request()->routeIs('signup')) active @endif">
+                                <a href="{{ route('signup') }}" class="btn btn-outline-warning ">
                                     Sign Up
                                 </a>
                             @endif
