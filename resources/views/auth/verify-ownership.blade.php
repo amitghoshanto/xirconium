@@ -11,7 +11,7 @@
         <form class="card card-md  card-borderless-mobile" action="" method="post" autocomplete="off" novalidate="">
             @csrf
             <div class="card-body">
-                <h2 class="card-title card-title-lg text-center mb-4">Verify Account Ownership</h2>
+                <h2 class="card-title card-title-lg text-center mb-4 xirconium-title">Verify Account Ownership</h2>
                 <p class="my-4 text-center">Please confirm your account by entering the otp code sent to
                     <strong>{{ Session::get('contact') }}</strong>.
                 </p>
@@ -59,10 +59,10 @@
                 </div>
                 <div class="form-footer">
                     <div class="btn-list flex-nowrap">
-                        <button type="submit" class="btn btn-danger w-100">Verify Now</button>
+                        <button type="submit" class="btn btn-danger w-100 xirconium-red-button">Verify Now</button>
                     </div>
                     <div class="hr-text">OR</div>
-                    <a href="{{ route('login') }}" class="btn btn-warning w-100">Already have an account?
+                    <a href="{{ route('login') }}" class="btn btn-outline-warning w-100">Already have an account?
                         <b> Login</b></a>
                 </div>
             </div>

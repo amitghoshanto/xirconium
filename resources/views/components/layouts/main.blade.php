@@ -10,6 +10,13 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     @vite(['resources/js/app.js'])
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
 </head>
 @if (isMobile())
     <style>
@@ -19,6 +26,10 @@
     </style>
 @endif
 <style>
+    * {
+        font-family: 'Roboto', sans-serif;
+    }
+
     [data-bs-theme=dark],
     body[data-bs-theme=dark] [data-bs-theme=light] {
         --tblr-bg-surface: #000000;
@@ -34,6 +45,14 @@
     .was-validated .form-select:invalid:not([multiple]):not([size]),
     .was-validated .form-select:invalid:not([multiple])[size="1"] {
         background-image: none !important;
+    }
+
+    .xirconium-title {
+        font-size: 1.4rem;
+    }
+
+    .xirconium-red-button {
+        background: linear-gradient(90deg, #e61d4e, #d71867);
     }
 </style>
 
@@ -77,11 +96,11 @@
                                 </a>
                             @else
                                 <a href="{{ route('login') }}"
-                                    class="btn btn-green @if (request()->routeIs('login')) active @endif">
+                                    class="btn btn-outline-green @if (request()->routeIs('login')) active @endif">
                                     Login
                                 </a>
                                 <a href="{{ route('signup') }}"
-                                    class="btn btn-warning @if (request()->routeIs('signup')) active @endif">
+                                    class="btn btn-outline-warning @if (request()->routeIs('signup')) active @endif">
                                     Sign Up
                                 </a>
                             @endif

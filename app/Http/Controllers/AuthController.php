@@ -54,7 +54,8 @@ class AuthController extends Controller
         $only_number = Str::replace('+880', '', $validatedData['contact']);
         $user = User::where('contact', $only_number)->first();
         if ($user) {
-            return back()->with(['alert' => 'danger', 'title' => 'Already register', 'muted' => 'Already register.']);
+            return back()->with(['alert' => 'danger', 'title' => 'This Mobile Number is already associated with another
+            account. Please use a different one', 'muted' => 'Already register.']);
         } else {
             VerificationCode::create([
                 'contact' => $only_number,

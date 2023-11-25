@@ -21,9 +21,9 @@
         <form class="card card-md  card-borderless-mobile" method="post" autocomplete="off" novalidate="">
             @csrf
             <div class="card-body">
-                <h2 class="card-title text-center mb-4">Create account</h2>
+                <h2 class="card-title text-center mb-4 xirconium-title">Create account</h2>
                 <div class="mb-3">
-                    <label class="form-label">Phone Number :</label>
+                    <label class="form-label text-muted">Enter a valid <b>Mobile Number</b> below:</label>
                     <div class="input-group mb-2">
                         <input type="tel" placeholder="" id="lo-verify-number"
                             class="form-control w-100 @error('contact') is-invalid @enderror" value="">
@@ -37,9 +37,11 @@
                     @enderror
                 </div>
                 <div class="form-footer">
-                    <button type="submit" class="btn btn-danger w-100">Send Verification Code</button>
+                    <button type="submit" class="btn btn-danger w-100 xirconium-red-button">Send Verification
+                        Code</button>
                     <div class="hr-text">OR</div>
-                    <a href="{{ route('login') }}" class="btn btn-green w-100">Already have account? Login</a>
+                    <a href="{{ route('login') }}" class="btn  btn-outline-success w-100">Already have account?
+                        Login</a>
                 </div>
             </div>
         </form>

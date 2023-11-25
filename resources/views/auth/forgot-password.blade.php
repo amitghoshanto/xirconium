@@ -21,7 +21,7 @@
         <form class="card card-md  card-borderless-mobile" method="post" autocomplete="off" novalidate="">
             @csrf
             <div class="card-body">
-                <h2 class="card-title text-center mb-4">Forgot Password</h2>
+                <h2 class="card-title text-center mb-4 xirconium-title">Forgot Password</h2>
                 <div class="mb-3">
                     <label class="form-label">Phone Number :</label>
                     <div class="input-group mb-2">
@@ -36,11 +36,12 @@
                         </div>
                     @enderror
                 </div>
-                <button type="submit" class="btn btn-danger w-100">Send Verification Code</button>
+                <button type="submit" class="btn btn-danger w-100 xirconium-red-button">Send Verification Code</button>
                 <div class="hr-text">OR</div>
-                <a href="{{ route('login') }}" class="btn btn-green w-100 mb-2">Already have an account?
+                <a href="{{ route('login') }}" class="btn btn-outline-green w-100 mb-2">Already have an account?
                     <b>Login</b></a>
-                <a href="{{ route('signup') }}" class="btn btn-warning w-100">Don't have an account? <b>Sign up</b></a>
+                <a href="{{ route('signup') }}" class="btn btn-outline-warning w-100">Don't have an account? <b>Sign
+                        up</b></a>
             </div>
         </form>
     </div>

@@ -21,7 +21,7 @@
         <form class="card card-md  card-borderless-mobile" method="post" autocomplete="off" novalidate="">
             @csrf
             <div class="card-body">
-                <h2 class="card-title text-center mb-4">Verification Successful</h2>
+                <h2 class="card-title text-center mb-4 xirconium-title">Verification Successful</h2>
                 <h3 class="card-subtitle text-center mb-4 text-muted">Set a new password for your account below.</h3>
                 <div class="mb-3">
                     <label class="form-label">Phone Number :</label>
@@ -38,7 +38,7 @@
                             placeholder="Choose password" autocomplete="off" name="password" id="password">
                         <span class="input-group-text p-2">
                             <a href="#" class="input-group-link" onclick="chnagePassType()"
-                                id="show_pass_button">Show password</a>
+                                id="show_pass_button">Show</a>
                         </span>
                     </div>
                     @error('password')
@@ -56,7 +56,7 @@
                             id="password_2">
                         <span class="input-group-text p-2">
                             <a href="#" class="input-group-link" onclick="chnagePassType2()"
-                                id="show_pass_button_2">Show password</a>
+                                id="show_pass_button_2">Show</a>
                         </span>
                     </div>
                     @error('password_confirmation')
@@ -71,9 +71,9 @@
                         Service, Payments Terms of Service and Privacy Policy.</span>
                 </div>
                 <div class="form-footer">
-                    <button type="submit" class="btn btn-danger w-100">Create Account</button>
+                    <button type="submit" class="btn btn-danger w-100 xirconium-red-button">Create Account</button>
                     <div class="hr-text">OR</div>
-                    <a href="{{ route('login') }}" class="btn btn-success w-100">Already have an account?
+                    <a href="{{ route('login') }}" class="btn btn-outline-success w-100">Already have an account?
                         <b> Login</b></a>
                 </div>
             </div>
@@ -96,10 +96,10 @@
             var show_pass_button = document.getElementById("show_pass_button");
             if (l_pass.type === "password") {
                 l_pass.type = "text";
-                show_pass_button.innerHTML = "Hide Password";
+                show_pass_button.innerHTML = "Hide";
             } else {
                 l_pass.type = "password";
-                show_pass_button.innerHTML = "Show Password";
+                show_pass_button.innerHTML = "Show";
             }
         }
 
@@ -108,10 +108,10 @@
             var show_pass_button = document.getElementById("show_pass_button_2");
             if (l_pass.type === "password") {
                 l_pass.type = "text";
-                show_pass_button.innerHTML = "Hide Password";
+                show_pass_button.innerHTML = "Hide";
             } else {
                 l_pass.type = "password";
-                show_pass_button.innerHTML = "Show Password";
+                show_pass_button.innerHTML = "Show";
             }
         }
     </script>

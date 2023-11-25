@@ -21,7 +21,7 @@
         <form class="card card-md  card-borderless-mobile" method="post" autocomplete="off" novalidate="">
             @csrf
             <div class="card-body">
-                <h2 class="card-title text-center mb-4">Login</h2>
+                <h2 class="card-title text-center mb-4 xirconium-title">Login</h2>
                 <div class="mb-3">
                     <label class="form-label">Phone Number :</label>
                     <div class="input-group mb-2">
@@ -43,7 +43,7 @@
                             placeholder="Password" autocomplete="off" name="password" id="password">
                         <span class="input-group-text p-2">
                             <a href="#" class="input-group-link" onclick="chnagePassType()"
-                                id="show_pass_button">Show password</a>
+                                id="show_pass_button">Show</a>
                         </span>
                         @error('password')
                             <div class="is-invalid"></div>
@@ -58,9 +58,10 @@
                             tabindex="-1">Click here</a>.</span>
                 </div>
                 <div class="form-footer">
-                    <button type="submit" class="btn btn-danger w-100">Login</button>
+                    <button type="submit" class="btn btn-danger w-100 xirconium-red-button">Login</button>
                     <div class="hr-text">OR</div>
-                    <a href="{{ route('signup') }}" class="btn btn-warning w-100">Don't have an account? Sign up</a>
+                    <a href="{{ route('signup') }}" class="btn btn-outline-warning w-100">Don't have an account? Sign
+                        up</a>
                 </div>
             </div>
         </form>
@@ -82,10 +83,10 @@
             var show_pass_button = document.getElementById("show_pass_button");
             if (l_pass.type === "password") {
                 l_pass.type = "text";
-                show_pass_button.innerHTML = "Hide Password";
+                show_pass_button.innerHTML = "Hide";
             } else {
                 l_pass.type = "password";
-                show_pass_button.innerHTML = "Show Password";
+                show_pass_button.innerHTML = "Show";
             }
         }
     </script>
