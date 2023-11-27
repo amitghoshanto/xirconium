@@ -24,7 +24,7 @@
             <div class="card-body">
                 <h2 class="card-title card-title-lg text-center mb-4 xirconium-title">Verify Mobile Number</h2>
                 <p class="my-4 text-center">Please confirm your account by entering the otp code sent to
-                    <strong>{{ Session::get('contact') }}</strong>.
+                    <strong>+880{{ Session::get('contact') }}</strong>.
                 </p>
                 <div class="my-5">
                     <div class="row g-4">
