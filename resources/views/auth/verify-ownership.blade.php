@@ -56,22 +56,28 @@
                             </div>
                         </div>
                     </div>
+
+
+                    <div class="text-secondary mt-3">
+                        Didn’t get a text? <a
+                            href="{{ route('forget-password') }}?contact={{ Session::get('contact') }}">Send again.</a>
+                    </div>
+                    <div class="text-secondary mt-2">
+                        Entered the wrong number? <a href="{{ route('forget-password') }}">Change it.</a>
+                    </div>
+
                 </div>
                 <div class="form-footer">
                     <div class="btn-list flex-nowrap">
                         <button type="submit" class="btn btn-danger w-100 xirconium-red-button">Verify Now</button>
                     </div>
                     <div class="hr-text">OR</div>
-                    <a href="{{ route('login') }}" class="btn btn-outline-warning w-100">Already have an account?
+                    <a href="{{ route('login') }}" class="btn btn-outline-warning w-100">Already have an account? &nbsp;
                         <b> Login</b></a>
                 </div>
             </div>
         </form>
-        <div class="text-center text-secondary mt-3">
-            It may take a minute to receive your code. Haven't received it? <a
-                href="{{ route('forget-password') }}">Resend a new
-                code.</a>
-        </div>
+
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", function() {

@@ -23,7 +23,7 @@
             <div class="card-body">
                 <h2 class="card-title text-center mb-4 xirconium-title">Login</h2>
                 <div class="mb-3">
-                    <label class="form-label">Phone Number :</label>
+                    <label class="form-label">Mobile Number :</label>
                     <div class="input-group mb-2">
                         <input type="tel" placeholder="" id="lo-verify-number"
                             class="form-control w-100 @error('contact') is-invalid @enderror">
@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 <div class="mb-3">
-                    <span class="form-check-label">Forgot password? <a href="{{ route('forget-password') }}"
+                    <span class="form-check-label">Forgot your password? <a href="{{ route('forget-password') }}"
                             tabindex="-1">Click here</a>.</span>
                 </div>
                 <div class="form-footer">

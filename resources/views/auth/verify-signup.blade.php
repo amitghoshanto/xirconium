@@ -67,6 +67,15 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="text-secondary mt-3">
+                        Didn’t get a text? <a href="{{ route('signup') }}?contact={{ Session::get('contact') }}">Send
+                            again.</a>
+                    </div>
+                    <div class="text-secondary mt-2">
+                        Entered the wrong number? <a href="{{ route('signup') }}">Change it.</a>
+                    </div>
+
                 </div>
                 <div class="form-footer">
                     <div class="btn-list flex-nowrap">
@@ -78,10 +87,7 @@
                 </div>
             </div>
         </form>
-        <div class="text-center text-secondary mt-3">
-            It may take a minute to receive your code. Haven't received it? <a href="{{ route('signup') }}">Resend a new
-                code.</a>
-        </div>
+
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", function() {

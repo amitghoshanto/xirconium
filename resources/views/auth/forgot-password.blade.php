@@ -23,10 +23,14 @@
             <div class="card-body">
                 <h2 class="card-title text-center mb-4 xirconium-title">Forgot Password</h2>
                 <div class="mb-3">
+
+                    {{-- @dump($request) --}}
+
                     <label class="form-label">Phone Number :</label>
                     <div class="input-group mb-2">
                         <input type="tel" placeholder="" id="lo-verify-number"
-                            class="form-control w-100 @error('contact') is-invalid @enderror">
+                            class="form-control w-100 @error('contact') is-invalid @enderror"
+                            value="{{ $contact ? '+' . $contact : '' }}">
                     </div>
                     <small class="form-hint" id="username_avail_result"> </small>
                     @error('contact')
@@ -38,7 +42,7 @@
                 </div>
                 <button type="submit" class="btn btn-danger w-100 xirconium-red-button">Send Verification Code</button>
                 <div class="hr-text">OR</div>
-                <a href="{{ route('login') }}" class="btn btn-outline-green w-100 mb-2">Already have an account?
+                <a href="{{ route('login') }}" class="btn btn-outline-green w-100 mb-2">Already have an account? &nbsp;
                     <b>Login</b></a>
                 <a href="{{ route('signup') }}" class="btn btn-outline-warning w-100">Don't have an account? <b>Sign
                         up</b></a>

@@ -26,7 +26,8 @@
                     <label class="form-label text-muted">Enter a valid <b>Mobile Number</b> below:</label>
                     <div class="input-group mb-2">
                         <input type="tel" placeholder="" id="lo-verify-number"
-                            class="form-control w-100 @error('contact') is-invalid @enderror" value="">
+                            class="form-control w-100 @error('contact') is-invalid @enderror"
+                            value="{{ $contact ? '+' . $contact : '' }}">
                     </div>
                     <small class="form-hint" id="username_avail_result"> </small>
                     @error('contact')

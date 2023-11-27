@@ -21,13 +21,13 @@
         <form class="card card-md  card-borderless-mobile" method="post" autocomplete="off" novalidate="">
             @csrf
             <div class="card-body">
-                <h2 class="card-title text-center mb-4 xirconium-title">Verification Successful</h2>
+                <h2 class="card-title text-center mb-4 xirconium-title text-green">Verification Successful</h2>
                 <h3 class="card-subtitle text-center mb-4 text-muted">Set a new password for your account below.</h3>
                 <div class="mb-3">
                     <label class="form-label">Phone Number :</label>
                     <div class="input-group mb-2">
                         <input type="tel" placeholder="" id="lo-verify-number" class="form-control w-100"
-                            value="{{ session('contact') }}" disabled name="phone">
+                            value="+880{{ session('contact') }}" disabled name="phone">
                     </div>
                     <small class="form-hint" id="username_avail_result"> </small>
                 </div>
@@ -67,13 +67,15 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <span class="form-check-label">By selecting Create account below, I agree to Xirconium’s Terms of
-                        Service, Payments Terms of Service and Privacy Policy.</span>
+                    <span class="form-check-label">By selecting <b> Create account </b> below, I agree to Xirconium’s <a
+                            href="">Terms of
+                            Service</a>, <a href="">Payments Terms of Service</a> and <a href="">Privacy
+                            Policy</a>.</span>
                 </div>
                 <div class="form-footer">
                     <button type="submit" class="btn btn-danger w-100 xirconium-red-button">Create Account</button>
                     <div class="hr-text">OR</div>
-                    <a href="{{ route('login') }}" class="btn btn-outline-success w-100">Already have an account?
+                    <a href="{{ route('login') }}" class="btn btn-outline-success w-100">Already have an account? &nbsp;
                         <b> Login</b></a>
                 </div>
             </div>

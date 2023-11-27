@@ -36,21 +36,34 @@ class AuthController extends Controller
         return back()->with(['alert' => 'danger', 'title' => 'Wrong credentials', 'muted' => 'The provided credentials do not match our records.']);
     }
 
-    public function signup()
+    public function signup(Request $request)
     {
+        $contact = $request->contact;
         $meta = [
             'title' => 'Signup',
         ];
-        return view('auth.signup', compact('meta'));
+        return view('auth.signup', compact('meta', 'contact'));
     }
 
 
     public function create(Request $request)
     {
+        $request->merge(
+            [
+                'contact' => Str::replace('+880', '', $request->contact),
+            ]
+        );
+        $rules = [
+            'contact' => 'required|unique:users',
+        ];
+        $custommessage = [
+            'contact.required' => 'Mobile number is required',
+            'contact.unique' => 'This Mobile Number is already associated with another
+            account. Please use a different one',
+        ];
+        $validatedData = $request->validate($rules, $custommessage);
 
-        $validatedData = $request->validate([
-            'contact' => 'required',
-        ]);
+
         $only_number = Str::replace('+880', '', $validatedData['contact']);
         $user = User::where('contact', $only_number)->first();
         if ($user) {
@@ -69,6 +82,7 @@ class AuthController extends Controller
 
     public function verifySignup()
     {
+
         $meta = [
             'title' => 'Verify Signup',
         ];
@@ -80,6 +94,7 @@ class AuthController extends Controller
         $validatedData = $request->validate([
             'code' => 'required',
         ]);
+
         $code = $validatedData['code'][0] . $validatedData['code'][1] . $validatedData['code'][2] . $validatedData['code'][3] . $validatedData['code'][4] . $validatedData['code'][5];
         $contact = Session::get('contact');
         $only_number = Str::replace('+880', '', $contact);
@@ -133,12 +148,15 @@ class AuthController extends Controller
         return redirect(route('login'));
     }
 
-    public function forgotPassword()
+    public function forgotPassword(Request $request)
     {
+
+        $contact = $request->contact;
         $meta = [
             'title' => 'Forgot Password',
         ];
-        return view('auth.forgot-password', compact('meta'));
+
+        return view('auth.forgot-password', compact('meta', 'contact'));
     }
 
     public function forgotPasswordPost(Request $request)

@@ -130,21 +130,33 @@
             <div class="row text-center align-items-center flex-row-reverse">
                 <div class="col-lg-auto ms-lg-auto">
                     <ul class="list-inline list-inline-dots mb-0">
-                        <li class="list-inline-item"><a href="{{ route('AboutUs') }}" class="link-secondary">About
-                                Us</a>
-                        </li>
-                        <li class="list-inline-item"><a href="{{ route('PrivacyPolicy') }}"
-                                class="link-secondary">Privacy
+
+                        <li class="list-inline-item"><a href="{{ route('PrivacyPolicy') }}" class="link-cyan">Privacy
                                 Policy</a></li>
-                        <li class="list-inline-item"><a href="{{ route('TOS') }}" class="link-secondary">Terms
-                                &
-                                Condition</a></li>
+
+                        <li class="list-inline-item"><a href="{{ route('TOS') }}" class="link-cyan">Terms
+                                of Use</a></li>
+
+                        <li class="list-inline-item"><a href="#" class="link-cyan">Refund Policy</a></li>
+
+                        <li class="list-inline-item"><a href="#" class="link-cyan">Site Map</a></li>
+
+                        <li class="list-inline-item"><a href="#" class="link-cyan">Legal</a></li>
+
+                        <li class="list-inline-item"><a href="#" class="link-light">Live Chat</a></li>
+
+
+
+
+
+
                     </ul>
                 </div>
                 <div class="col-12 col-lg-auto mt-3 mt-lg-0">
                     <ul class="list-inline list-inline-dots mb-0">
                         <li class="list-inline-item">
-                            © 2023 {{ config('app.name') }}. All Rights Reserved.
+                            Copyright © 2020 {{ config('app.name') }} Foundation. All Rights Reserved.
+
                         </li>
                     </ul>
                 </div>
