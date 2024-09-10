@@ -7,14 +7,9 @@
 
             <form class="card card-md card-borderless-mobile" method="post" autocomplete="off" novalidate="">
                 <div class="card-body">
-                    <h2 class="card-title text-center mb-4">Private Event Registration</h2>
-                    <h3 class="card-subtitle text-center mb-4 text-muted">Complete this form to register online.</h3>
-                    <p class="my-4 text-center">Please share more details about yourself.
-                        Upload your passport-sized photo and enter your details as per your Government ID. All the
-                        fields
-                        below are mandatory.</p>
-
+                    <h2 class="card-title text-center mb-4">Profile</h2>
                     <hr>
+
 
 
                     <div class="text-center mb-4">
@@ -43,12 +38,12 @@
                     @csrf
 
                     <div class="mb-3">
-                        <label class="form-label">Legal Name</label>
+
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control @error('first_name') is-invalid @enderror"
                                 id="first_name"
                                 value="{{ old('first_name') ? old('first_name') : auth()->user()->name }}"
-                                autocomplete="off" name="first_name">
+                                autocomplete="off" name="first_name" placeholder="">
                             <label for="first_name">First Name</label>
                             @error('first_name')
                                 <div class="is-invalid"></div>
@@ -61,7 +56,7 @@
                             <input type="text" class="form-control @error('last_name') is-invalid @enderror"
                                 id="last_name"
                                 value="{{ old('last_name') ? old('last_name') : auth()->user()->last_name }}"
-                                autocomplete="off" name="last_name">
+                                autocomplete="off" name="last_name" placeholder="">
                             <label for="last_name">Last Name</label>
                             @error('last_name')
                                 <div class="is-invalid"></div>
@@ -177,7 +172,7 @@
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control @error('email') is-invalid @enderror"
                                 id="email" value="{{ old('email') ? old('email') : Auth::user()->email }}"
-                                autocomplete="off" name="email">
+                                autocomplete="off" name="email" placeholder="">
                             <label for="email">Email Address</label>
                             @error('email')
                                 <div class="is-invalid"></div>

@@ -3,32 +3,26 @@
         <ul class="navbar-nav">
 
 
-            <li class="nav-item">
-                <a class="nav-link" href="./">
+            <div class="nav-item   d-md-flex me-3">
+                <div class="btn-list">
+                    @if (Auth::check())
+                        <a href="{{ route('profile') }}" class="btn btn-success ">
+                            Profile
+                        </a>
+                        <a href="{{ route('logout') }}" class="btn btn-danger ">
+                            Logout
+                        </a>
+                    @else
+                        <a href="{{ route('login') }}" class="btn btn-outline-green  ">
+                            Login
+                        </a>
+                        <a href="{{ route('signup') }}" class="btn btn-outline-warning ">
+                            Sign Up
+                        </a>
+                    @endif
+                </div>
+            </div>
 
-                    <span class="nav-link-title">
-                        Verify Tickets
-                    </span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="./">
-
-                    <span class="nav-link-title">
-                        About Us
-                    </span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="./">
-
-                    <span class="nav-link-title">
-                        Contact Us
-                    </span>
-                </a>
-            </li>
 
 
 

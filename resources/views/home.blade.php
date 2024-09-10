@@ -1,7 +1,7 @@
 <x-layouts.main :meta="$meta">
 
 
-    <div class="container pt-4 text-center">
+    <div class="container pt-4 ">
 
         <div class="row">
             <div class="col-md-12">
@@ -15,7 +15,8 @@
 
             </div>
         </div>
-        {{-- <h1 class="my-2">LEGENDS OF THE DECADE</h1>
+        <h1 class="my-3 text-center">LEGENDS OF THE DECADE</h1>
+
 
         <div class="row justify-content-center">
             <div class="col-md-5">
@@ -40,7 +41,23 @@
                     <div class="mb-3 my-3">
                         <label class="form-label text-right" style="text-align: left">Date of birth</label>
                         <div class="row g-2">
-
+                            <div class="col-5">
+                                <select name="user[month]" class="form-select">
+                                    <option value="">Month</option>
+                                    <option value="1">January</option>
+                                    <option value="2">February</option>
+                                    <option value="3">March</option>
+                                    <option value="4">April</option>
+                                    <option value="5">May</option>
+                                    <option selected="selected" value="6">June</option>
+                                    <option value="7">July</option>
+                                    <option value="8">August</option>
+                                    <option value="9">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+                            </div>
                             <div class="col-3">
                                 <select name="user[day]" class="form-select">
                                     <option value="">Day</option>
@@ -77,25 +94,6 @@
                                     <option value="31">31</option>
                                 </select>
                             </div>
-
-                            <div class="col-5">
-                                <select name="user[month]" class="form-select">
-                                    <option value="">Month</option>
-                                    <option value="1">January</option>
-                                    <option value="2">February</option>
-                                    <option value="3">March</option>
-                                    <option value="4">April</option>
-                                    <option value="5">May</option>
-                                    <option selected="selected" value="6">June</option>
-                                    <option value="7">July</option>
-                                    <option value="8">August</option>
-                                    <option value="9">September</option>
-                                    <option value="10">October</option>
-                                    <option value="11">November</option>
-                                    <option value="12">December</option>
-                                </select>
-                            </div>
-
                             <div class="col-4">
                                 <select name="user[year]" class="form-select">
                                     <option value="">Year</option>
@@ -237,18 +235,43 @@
 
 
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floating-input"
+                        <input type="text" class="form-control" id="phone_number"
                             placeholder="Enter mobile number" autocomplete="off">
-                        <label for="floating-input">Mobile Number</label>
+
                     </div>
 
 
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floating-input"
-                            placeholder="Reenter mobile number" autocomplete="off">
-                        <label for="floating-input">Repeat Mobile Number</label>
+                        <input type="text" class="form-control" id="phone_number_2"
+                            placeholder="Repeat mobile number" autocomplete="off">
+
                     </div>
 
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="floating-input" placeholder=""
+                            autocomplete="off" value="1">
+                        <label for="floating-input">Ticket Quantity</label>
+                        <p class="my-1" style="text-align: left !important">
+                            Per Ticket Price : BDT 3050
+                        </p>
+                    </div>
+
+                    <div class="mb-3">
+                        <div>
+                            <label class="form-check">
+                                <input class="form-check-input" type="checkbox" name="agree" required="">
+                                <span class="form-check-label">I agree to the <a href="" target="_blank">Terms
+                                        &amp;
+                                        Conditions</a>, <a href="" target="_blank">Privacy
+                                        Policy</a>, and <a href="" target="_blank">Refund
+                                        Policy</a></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <input type="submit" class="btn btn-danger w-100 register_button" value="Buy Ticket">
+                    </div>
 
 
 
@@ -262,22 +285,56 @@
 
                 </div>
             </div>
-        </div> --}}
-
-
-
-
-        <div class="row justify-content-center">
-            <div class="col-md-4">
-                <div class="text-center "><a href="{{ route('signup') }}" class="text-decoration-none">
-                        <button class="register_button " style=""><b>REGISTER
-                                ONLINE</b></button>
-                    </a></div>
-            </div>
         </div>
 
 
 
+
+
+
+
+
     </div>
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/intlTelInput.min.js"></script>
+    <script>
+        var phone_number = window.intlTelInput(document.querySelector("#phone_number"), {
+            allowDropdown: false,
+            separateDialCode: true,
+            preferredCountries: ["bd"],
+            onlyCountries: ["bd"],
+            hiddenInput: ["contact"],
+            utilsScript: "//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/utils.js"
+        });
+    </script>
+
+    <script>
+        var phone_number = window.intlTelInput(document.querySelector("#phone_number_2"), {
+            allowDropdown: false,
+            separateDialCode: true,
+            preferredCountries: ["bd"],
+            onlyCountries: ["bd"],
+            hiddenInput: ["contact"],
+            utilsScript: "//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/utils.js"
+        });
+    </script>
+
+    <script>
+        function chnagePassType() {
+            var l_pass = document.getElementById("password");
+            var show_pass_button = document.getElementById("show_pass_button");
+            if (l_pass.type === "password") {
+                l_pass.type = "text";
+                show_pass_button.innerHTML = "Hide";
+            } else {
+                l_pass.type = "password";
+                show_pass_button.innerHTML = "Show";
+            }
+        }
+    </script>
 
 </x-layouts.main>
