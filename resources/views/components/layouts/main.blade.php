@@ -153,11 +153,7 @@
 
                         <li class="list-inline-item"><a href="#" class="link-cyan">Refund Policy</a></li>
 
-                        <li class="list-inline-item"><a href="#" class="link-cyan">Site Map</a></li>
 
-                        <li class="list-inline-item"><a href="#" class="link-cyan">Legal</a></li>
-
-                        <li class="list-inline-item"><a href="#" class="link-light">Live Chat</a></li>
 
 
 
