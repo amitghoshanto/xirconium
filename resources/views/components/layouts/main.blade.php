@@ -33,6 +33,10 @@
     [data-bs-theme=dark],
     body[data-bs-theme=dark] [data-bs-theme=light] {
         --tblr-bg-surface: #000000;
+        --tblr-border-width: 2px;
+        --tblr-border-color: #494949;
+        --tblr-border-radius: 10px;
+
     }
 
     .form-control.is-invalid,
@@ -97,7 +101,7 @@
 
 
                     <li class="nav-item d-none  d-md-flex me-3">
-                        <a class="nav-link" href="./">
+                        <a class="nav-link" href="{{ route('AboutUs') }}">
 
                             <span class="nav-link-title">
                                 About Us
@@ -106,7 +110,7 @@
                     </li>
 
                     <li class="nav-item d-none  d-md-flex me-3">
-                        <a class="nav-link" href="./">
+                        <a class="nav-link" href="{{ route('ContactUs') }}">
 
                             <span class="nav-link-title">
                                 Contact Us
@@ -150,14 +154,14 @@
                 @endif --}}
 
                 </div>
-                @if (isMobile())
+                {{-- @if (isMobile())
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false"
                         aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <x-navbar />
-                @endif
+                @endif --}}
 
 
 
@@ -186,7 +190,8 @@
                         <li class="list-inline-item"><a href="{{ route('TOS') }}" class="link-cyan">Terms
                                 of Use</a></li>
 
-                        <li class="list-inline-item"><a href="#" class="link-cyan">Refund Policy</a></li>
+                        <li class="list-inline-item"><a href="{{ route('RefundPolicy') }}" class="link-cyan">Refund
+                                Policy</a></li>
 
 
 

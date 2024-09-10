@@ -43,6 +43,24 @@ class HomeController extends Controller
         return view('static.terms-and-conditions', compact('meta'));
     }
 
+    public function refundPolicy()
+    {
+
+        $meta = [
+            'title' => 'Refund Policy',
+        ];
+        return view('static.refund-policy', compact('meta'));
+    }
+
+    public function contactUs()
+    {
+
+        $meta = [
+            'title' => 'Contact Us',
+        ];
+        return view('static.contact-us', compact('meta'));
+    }
+
     public function test()
     {
         $meta = [

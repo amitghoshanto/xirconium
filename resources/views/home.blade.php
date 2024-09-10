@@ -18,7 +18,7 @@
         <h1 class="my-3 text-center">LEGENDS OF THE DECADE</h1>
 
 
-        <div class="row justify-content-center">
+        <div class="row justify-content-center mb-3">
             <div class="col-md-5">
                 <div class="mb-3">
 
@@ -260,10 +260,11 @@
                         <div>
                             <label class="form-check">
                                 <input class="form-check-input" type="checkbox" name="agree" required="">
-                                <span class="form-check-label">I agree to the <a href="" target="_blank">Terms
+                                <span class="form-check-label">I agree to the <a href="{{ route('TOS') }}"
+                                        target="_blank">Terms
                                         &amp;
-                                        Conditions</a>, <a href="" target="_blank">Privacy
-                                        Policy</a>, and <a href="" target="_blank">Refund
+                                        Conditions</a>, <a href="{{ route('PrivacyPolicy') }}" target="_blank">Privacy
+                                        Policy</a>, and <a href="{{ route('RefundPolicy') }}" target="_blank">Refund
                                         Policy</a></span>
                             </label>
                         </div>
@@ -284,10 +285,17 @@
 
 
                 </div>
+
+
             </div>
+
         </div>
 
 
+        <hr>
+
+        <h2>Event</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 
 
 
