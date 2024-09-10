@@ -25,7 +25,7 @@
                             <div class="card-header text-center">
                                 <h3 class="card-title text-center">Full Name</h3>
                             </div>
-                            <div class="card-body"> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} </div>
+                            <div class="card-body"> {{ Auth::user()->name }} {{ Auth::user()->last_name }} </div>
 
                         </div>
                     </div>

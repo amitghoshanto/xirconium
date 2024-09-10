@@ -47,7 +47,7 @@
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control @error('first_name') is-invalid @enderror"
                                 id="first_name"
-                                value="{{ old('first_name') ? old('first_name') : auth()->user()->first_name }}"
+                                value="{{ old('first_name') ? old('first_name') : auth()->user()->name }}"
                                 autocomplete="off" name="first_name">
                             <label for="first_name">First Name</label>
                             @error('first_name')

@@ -58,7 +58,7 @@ class UserController extends Controller
         $this->validate($request, $rules, $custommessage);
 
         User::where('id', Auth::user()->id)->update([
-            'first_name' => $request->first_name,
+            'name' => $request->first_name,
             'last_name' => $request->last_name,
             'gender' => $request->gender,
             'dob_d' => $request->dob_d,
