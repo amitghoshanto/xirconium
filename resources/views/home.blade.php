@@ -1,17 +1,18 @@
 <x-layouts.main :meta="$meta">
 
 
-    <div class="container container-tight py-4 ">
-        <img src="https://i.ibb.co/QHR9kqy/habib-event.jpg" alt="">
+    <div class="container container-tight pt-4 text-center">
+        <img src="https://getsetrock.com/site/img/events/legends-of-the-92/t2iuEW8SkQGqziOm42ny.jpg" alt=""
+            class="img-fluid w-100">
 
 
 
 
 
-        <div class="text-center "><a href="{{ route('signup') }}" class="text-decoration-none">
-                <button class="register_button " style=""><b>REGISTER
+        {{-- <div class="text-center "><a href="{{ route('signup') }}" class="text-decoration-none">
+                <button class="btn btn-danger w-100 xirconium-red-button my-2" style=""><b>REGISTER
                         ONLINE</b></button>
-            </a></div>
+            </a></div> --}}
 
 
 

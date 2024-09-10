@@ -85,31 +85,53 @@
                     </h1>
                 </div>
                 <div class="navbar-nav flex-row order-md-last">
-                    <div class="nav-item d-none  d-md-flex me-3">
-                        <div class="btn-list">
-                            @if (Auth::check())
-                                <a href="{{ route('profile') }}" class="btn btn-success ">
-                                    Profile
-                                </a>
-                                <a href="{{ route('logout') }}" class="btn btn-danger ">
-                                    Logout
-                                </a>
-                            @else
-                                <a href="{{ route('login') }}" class="btn btn-outline-green  ">
-                                    Login
-                                </a>
-                                <a href="{{ route('signup') }}" class="btn btn-outline-warning ">
-                                    Sign Up
-                                </a>
-                            @endif
-                        </div>
-                    </div>
+
+                    <li class="nav-item d-none  d-md-flex me-3">
+                        <a class="nav-link" href="./">
+
+                            <span class="nav-link-title">
+                                Buy Tickets
+                            </span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item d-none  d-md-flex me-3">
+                        <a class="nav-link" href="./">
+
+                            <span class="nav-link-title">
+                                Events
+                            </span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item d-none  d-md-flex me-3">
+                        <a class="nav-link" href="./">
+
+                            <span class="nav-link-title">
+                                About Us
+                            </span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item d-none  d-md-flex me-3">
+                        <a class="nav-link" href="./">
+
+                            <span class="nav-link-title">
+                                Contact Us
+                            </span>
+                        </a>
+                    </li>
+
                 </div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu"
-                    aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <x-navbar />
+                @if (isMobile())
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <x-navbar />
+                @endif
+
 
 
 
@@ -155,7 +177,7 @@
                 <div class="col-12 col-lg-auto mt-3 mt-lg-0">
                     <ul class="list-inline list-inline-dots mb-0">
                         <li class="list-inline-item">
-                            Copyright © 2020 {{ config('app.name') }} Foundation. All Rights Reserved.
+                            Copyright © {{ date('Y') }} {{ config('app.name') }}. All Rights Reserved.
 
                         </li>
                     </ul>
