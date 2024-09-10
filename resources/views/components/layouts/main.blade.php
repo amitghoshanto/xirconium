@@ -90,19 +90,11 @@
                         <a class="nav-link" href="./">
 
                             <span class="nav-link-title">
-                                Buy Tickets
+                                Verify Tickets
                             </span>
                         </a>
                     </li>
 
-                    <li class="nav-item d-none  d-md-flex me-3">
-                        <a class="nav-link" href="./">
-
-                            <span class="nav-link-title">
-                                Events
-                            </span>
-                        </a>
-                    </li>
 
                     <li class="nav-item d-none  d-md-flex me-3">
                         <a class="nav-link" href="./">
