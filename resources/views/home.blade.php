@@ -15,7 +15,7 @@
 
             </div>
         </div>
-        <h1 class="my-2">LEGENDS OF THE DECADE</h1>
+        {{-- <h1 class="my-2">LEGENDS OF THE DECADE</h1>
 
         <div class="row justify-content-center">
             <div class="col-md-5">
@@ -262,15 +262,19 @@
 
                 </div>
             </div>
+        </div> --}}
+
+
+
+
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="text-center "><a href="{{ route('signup') }}" class="text-decoration-none">
+                        <button class="register_button " style=""><b>REGISTER
+                                ONLINE</b></button>
+                    </a></div>
+            </div>
         </div>
-
-
-
-
-        {{-- <div class="text-center "><a href="{{ route('signup') }}" class="text-decoration-none">
-                <button class="btn btn-danger w-100 xirconium-red-button my-2" style=""><b>REGISTER
-                        ONLINE</b></button>
-            </a></div> --}}
 
 
 

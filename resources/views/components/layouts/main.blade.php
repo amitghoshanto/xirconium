@@ -113,6 +113,23 @@
                             </span>
                         </a>
                     </li>
+                    <li class="nav-item d-none  d-md-flex me-3">
+                        <a class="nav-link" href="{{ route('login') }}">
+
+                            <span class="nav-link-title">
+                                Login
+                            </span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item d-none  d-md-flex me-3">
+                        <a class="nav-link" href="{{ route('signup') }}">
+
+                            <span class="nav-link-title">
+                                Signup
+                            </span>
+                        </a>
+                    </li>
 
                 </div>
                 @if (isMobile())
